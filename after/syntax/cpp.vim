@@ -49,6 +49,8 @@ endif
 " Class name declaration
 syn match cCustomClassKey "\<class\>"
 hi def link cCustomClassKey cppStructure
+syn match cClassDeclare "\<class\_s*:\_s*public"
+          \ contains=cCustomClassKey,cBlock,cppAccess
 
 " Template functions.
 " Naive implementation that sorta works in most cases. Should correctly
@@ -89,7 +91,8 @@ elseif exists('g:cpp_experimental_template_highlight') && g:cpp_experimental_tem
     syn match   cCustomTemplate "\<template\>"
     hi def link cCustomTemplate  cppStructure
     syn match   cTemplateDeclare "\<template\_s*<\_[^;()]\{-}>"
-                \ contains=cppStructure,cCustomTemplate,cCustomAngleBracketStart
+                \ contains=cppStructure,cCustomTemplate,
+		            \ cCustomClassKey,cCustomAngleBracketStart
 
     " Remove 'operator' from cppStructure and use a custom match
     syn clear cppOperator
