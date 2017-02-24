@@ -46,6 +46,10 @@ if exists('g:cpp_class_scope_highlight') && g:cpp_class_scope_highlight
     hi def link cCustomClass Function
 endif
 
+" Class name declaration
+syn match cCustomClassKey "\<class\>"
+hi def link cCustomClassKey cppStructure
+
 " Template functions.
 " Naive implementation that sorta works in most cases. Should correctly
 " highlight everything in test/color2.cpp
@@ -80,7 +84,7 @@ elseif exists('g:cpp_experimental_template_highlight') && g:cpp_experimental_tem
 
     " Remove 'template' from cppStructure and use a custom match
     syn clear cppStructure
-    syn keyword cppStructure class typename namespace
+    syn keyword cppStructure typename namespace
 
     syn match   cCustomTemplate "\<template\>"
     hi def link cCustomTemplate  cppStructure
