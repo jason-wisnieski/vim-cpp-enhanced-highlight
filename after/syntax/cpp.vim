@@ -26,13 +26,17 @@
 "   http://www.vim.org/scripts/script.php?script_id=1640
 "   http://www.vim.org/scripts/script.php?script_id=3064
 
+" Treat 'this' differently than other keywords
+syn clear cppStatement
+syn keyword cppStatement new delete friend using
+syn keyword cppThis this
+hi def link cppThis cppStatement
 
 " -----------------------------------------------------------------------------
 "  Highlight Class and Function names.
 "
 " Based on the discussion in: http://stackoverflow.com/q/736701
 " -----------------------------------------------------------------------------
-
 " Functions
 syn match   cCustomParen    "(" contains=cParen contains=cCppParen
 syn match   cCustomFunc     "\w\+\s*(\@="
