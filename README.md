@@ -6,12 +6,27 @@ development in Vim. Compared to the standard syntax highlighting for C++ it
 adds highlighting of (user defined) functions and the containers and types in
 the standard library / boost.
 
-Development is done at: http://github.com/octol/vim-cpp-enhanced-highlight
+Original development was done at: http://github.com/octol/vim-cpp-enhanced-highlight
 
-![Screenshot](http://www.haeggblad.com/vim/screenshot.png)
+This fork is maintained at: http://github.com/jason-wisnieski/vim-cpp-enhanced-highlight
 
-Optional features
------------------
+![Screenshot](doc/vim-cpp-enhanced-highlight-screenshot.png)
+
+New features from this fork (jason-wisnieski/vim-cpp-enhanced highlight)
+------------------------------------------------------------------------
+
+Highlighting of class names in definitions is disabled by default. To enable, set
+```vim
+let g:cpp_class_decl_highlight = 1
+```
+
+'this' keyword is in its own highlight group. By default, this remains in the cppStatement group. To change its highlighting, set (for example)
+```vim
+hi cppThis term=bold ctermfg=magenta gui=bold guifg=Brown
+```
+
+Optional features from octol/vim-cpp-enhanced-highlight
+-------------------------------------------------------
 
 Highlighting of class scope is disabled by default. To enable set
 ```vim
@@ -95,4 +110,7 @@ Background information
 
 Jon Haggblad <jon@haeggblad.com>
 
-Last update: 19 October 2016
+Jason Wisnieski (https://github.com/jason-wisnieski)
+
+Last update: 2017-04-10
+
